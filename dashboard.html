@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DashBoard</title>
+	<link rel="stylesheet" href="css/mainStyle.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/jquery.mixitup.min.js"></script>
+	<script src="js/javascript.js"></script>
+
+</head>
+<body>
+	
+	<!-- ==================== HEADER ============================= -->
+	<header>
+		<div id="logo">
+			<span id="heart" class="fa fa-heartbeat"></span>	
+			<p id="log">HealthAPP</p>
+
+			<div id="account">
+				<span id="user" class="fa fa-user"></span>
+				<p id="acc">MARIA SIAPERA</p>
+			</div>
+
+			<div style="clear: both";></div>
+		</div> <!-- end logo div -->
+	</header>
+
+
+<!-- ============= MENU ==================== -->
+			
+			<div id="menu">
+				<ul>
+					<li><a href="#"><span id="dashicon" class="fa fa-tachometer"></span>DASHBOARD</a></li>
+					<li><a href="radiologists.html"><span id="rdicon" class="fa fa-user-md"></span>RADIOLOGISTS</a></li>
+					<li><a href="calendar.html"><span id="calicon" class="fa fa-calendar"></span>CALENDAR</a></li>
+					<li><a href="index.html"><span id="logouticon" class="fa fa-power-off"></span>LOG OUT</a></li>
+				</ul>
+			</div>
+	
+	
+	<div id="content">
+		<!-- ===================SUB HEADER  =====================-->
+		<div id="subheader">
+			<div id="sub-icons">
+				<div id="menuBox"><span id="menu-icon" class="fa fa-bars"></span></div>
+				<span id="search-icon" class="fa fa-search"></span>
+			</div>  
+
+			<p>DASHBOARD</p>
+
+			<div style="clear: both";></div>
+		</div>  <!-- end subheader -->
+
+		<!-- ===================SORT AND FILTER SUBHEADER =================-->
+
+		<div id="sort_filter_header">
+
+			<div id="sort">
+				<p>SORT:</p>
+
+				<div id="sort_btns">
+					
+					<button type="button" class="def_bl_btn filter" data-filter="all">DEFAULT</button>
+					<button type="button" class="def_bl_btn sort" data-sort="myorder:asc">ASCENDING</button>
+					<button type="button" class="def_bl_btn sort" data-sort="myorder:desc">DESCENDING</button>
+
+				</div>    <!-- end buttons --> 
+			</div> <!-- general sort -->
+
+			<div id="filter">
+				<p>FILTER:</p>
+				<div id="filter_btns">
+					<button type="button" class="em_rd_btn filter" data-filter=".emergency">EMERGENCY</button>
+					<button type="button" class="dn_gr_btn filter" data-filter=".done">DONE</button>
+					<button type="button" class="def_bl_btn filter" data-filter=".pending">PENDING</button>
+
+				</div>    <!-- end buttons --> 
+			</div> <!-- general filter -->
+
+		<div style="clear: both";></div>
+		</div> <!-- end sort filter  -->
+
+
+		<!-- ============== COMMANDS ================ -->
+
+		<div id="commands" class="list">
+
+			<div id="comm_normal" class="mix pending" data-myorder="1">
+				<p id="title"><span class="norm_color">X-Rays</span></p>
+				<p id="ID"><span class="norm_color">ID:</span> 001</p>
+				<p id="date">date: <span class="norm_color">pending </span></p>
+				<span id="norm_icon" class="fa fa-chevron-right"></span>
+			</div> 
+
+			<!-- <div style="clear: both";></div> -->
+
+			<div id="comm_normal" class="mix pending" data-myorder="2">
+				<p id="title"><span class="norm_color">MRI</span></p>
+				<p id="ID"><span class="norm_color">ID:</span> 002</p>
+				<p id="date">date: <span class="norm_color">pending </span></p>
+				<span id="norm_icon" class="fa fa-chevron-right"></span>
+			</div> 
+
+			<!-- <div style="clear: both";></div> -->
+
+			<div id="comm_done" class="mix done" data-myorder="3">
+				<p id="title"><span class="done_color">Ultrasound</span></p>
+				<p id="ID"><span class="done_color">ID:</span> 003</p>
+				<p id="date">date: <span class="done_color">05/05/2015</span></p>
+				<span id="done_icon" class="fa fa-check"></span>
+			</div> 
+
+			<!-- <div style="clear: both";></div> -->
+
+
+			<div id="comm_normal" class="mix pending" data-myorder="4">
+				<p id="title"><span class="norm_color">Bone Scan</span></p>
+				<p id="ID"><span class="norm_color">ID:</span> 004</p>
+				<p id="date">date: <span class="norm_color">pending </span></p>
+				<span id="norm_icon" class="fa fa-chevron-right"></span>
+			</div> 
+
+			<!-- <div style="clear: both";></div> -->
+
+			<div id="comm_emerg" class="mix emergency pending" data-myorder="5">
+				<p id="title"><span class="emerg_color">CAT Scan</span></p>
+				<p id="ID"><span class="emerg_color">ID:</span> 005</p>
+				<p id="date">date: <span class="emerg_color">pending </span></p>
+				<span id="emerg_icon" class="fa fa-exclamation-circle"></span>
+			</div> 
+
+			<!-- <div style="clear: both";></div> -->
+
+			<div id="comm_normal" class="mix pending" data-myorder="6">
+				<p id="title"><span class="norm_color">Thyroid Scan</span></p>
+				<p id="ID"><span class="norm_color">ID:</span> 006</p>
+				<p id="date">date: <span class="norm_color">pending </span></p>
+				<span id="norm_icon" class="fa fa-chevron-right"></span>
+			</div> 
+
+			<!-- <div style="clear: both";></div> -->
+
+			<div id="comm_normal" class="mix pending" data-myorder="7">
+				<p id="title"><span class="norm_color">X-Rays</span></p>
+				<p id="ID"><span class="norm_color">ID:</span> 007</p>
+				<p id="date">date: <span class="norm_color">pending </span></p>
+				<span id="norm_icon" class="fa fa-chevron-right"></span>
+			</div> 
+
+			<!-- <div style="clear: both";></div> -->
+
+			<!-- <div id="comm_done" class="mix done" data-myorder="8">
+				<p id="title"><span class="done_color">Fluroscopy</span></p>
+				<p id="ID"><span class="done_color">ID:</span> 008</p>
+				<p id="date">date: <span class="done_color">12/05/2015</span></p>
+				<span id="done_icon" class="fa fa-check"></span>
+			</div> 
+			
+			
+			<div id="comm_emerg" class="mix emergency" data-myorder="9">
+				<p id="title"><span class="emerg_color">PET Scan</span></p>
+				<p id="ID"><span class="emerg_color">ID:</span> 009</p>
+				<p id="date">date: <span class="emerg_color">pending </span></p>
+				<span id="emerg_icon" class="fa fa-exclamation-circle"></span>
+			</div> 
+			
+			
+			<div id="comm_normal" class="mix pending" data-myorder="10">
+				<p id="title"><span class="norm_color">Thallium Scan</span></p>
+				<p id="ID"><span class="norm_color">ID:</span> 010</p>
+				<p id="date">date: <span class="norm_color">pending </span></p>
+				<span id="norm_icon" class="fa fa-chevron-right"></span>
+			</div> -->
+
+		</div> <!-- end commands -->
+
+
+		<!-- ============= COMMAND INFORMATION =========== -->
+
+		<div id="comm_info">
+			<p id="comm_title">COMMAND INFORMATION</p>
+
+			<div id="information">
+				<p class="norm_color">RADIOLOGICAL EXAM: <span class="inf">X-Rays</span></p>
+				<p class="norm_color">ID: <span class="inf">001</span></p>
+				<p class="norm_color">REASON: <span class="inf">Checkup</span></p>
+				<p class="norm_color">DATE OF COMMAND: <span class="inf">04/03/2015</span></p>
+				<p class="norm_color">RECOMMENED DATE: <span class="inf">10/05/2015</span></p>
+				<p class="norm_color">PRIORITY: <span class="inf">Low priority</span></p>
+				<p class="norm_color">SCHEDULED DATE: <span class="inf">PENDING</span></p>
+				
+				<a href="schedule.html"><button id="sch_btn" type="button">SCHEDULE</button></a>
+			</div>
+
+		</div> <!-- end commands information --> 
+
+		<div style="clear: both";></div>
+			
+			<!--  ========================= PAGINATION ======================== -->
+
+	<div id="pagination">
+		<div id="pages">
+			<ul>
+				<li><a href="#"><span class="textbtn prev">PREVIOUS</span></a></li>
+				<li><span class="current">1</span></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#"><span  class="textbtn next">NEXT</span></a></li>
+			</ul>
+		</div>
+	</div>
+
+
+
+
+	</div> <!-- end content -->
+
+
+	
+
+     <!-- ===================== FOOTER ======================== -->
+
+	<footer>
+		<p>Copyright &copy; all rights reserved 2015</p>
+	</footer>
+
+	<!-- JQUERY SCRIPT -->
+	<script>
+		$(function(){
+
+	// Instantiate MixItUp:
+
+	$('#commands').mixItUp();
+
+	//menu
+	$("#menu-icon").click(function() {
+	  $("#menu").toggleClass("active");
+		});
+
+	$("#menu-icon").click(function() {
+	  $("#trigger").toggleClass("active");
+		});
+
+});
+	</script>
+</body>
+</html>

@@ -1,0 +1,1392 @@
+/*RESET*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;
+	outline:none;
+}
+
+/*CUSTOM FONT*/
+
+@font-face {
+    font-family: "Montserrat";
+    src: url(../fonts/Montserrat-Regular.ttf);
+
+}
+
+@font-face {
+	font-family: "Montserrat";
+	font-weight: bold;
+	src: url(../fonts/Montserrat-Bold.ttf);
+}
+
+
+body {
+	font-family: "Montserrat";
+}
+
+
+/*======================HEADER=========================*/
+
+header{
+	display: block;
+	width: 100%;
+	height: 50px;
+	background-color: #3498db;
+	margin:0 auto;
+	/*text-align: center;*/
+}
+
+/*LOGO*/
+
+div#logo {
+	display:block;
+	width: 960px;
+	margin:0 auto;
+	/*text-align: left;*/
+}
+
+   /*Paragraph logo */
+
+#log {
+	display: inline-block;
+	font-size: 25px;
+	color: #fff;
+	margin-top: 6px;
+	text-align: left;
+	/*padding-right: 400px;*/
+
+}
+
+     /*     ICON MANIPULATION     */
+
+div#logo span#heart {
+	display: inline-block;
+	font-size: 30px;
+	color: #fff;
+	padding-left: 10px;
+	padding-right: 5px;
+	margin-top: 5px;
+}
+
+div#logo span#user {
+	font-size: 20px;
+	color: #fff;
+	padding-right: 5px;
+
+}
+
+
+     /*ACCOUNT MANIPULATION*/
+
+div#account{
+	display:block;
+	float:right;
+	margin-top: 10px;
+	margin-right: 15px;
+}
+
+   /*paragraph account*/
+
+p#acc {
+	display: inline-block;
+	font-size: 12px;
+	color: #fff;
+	/*margin-top: 6px;*/
+	/*float:right;*/
+}
+
+
+    /* =================== SUBHEADER =====================*/
+
+	#subheader {
+		padding-top: 15px;
+		padding-bottom: 13px;
+		text-align: center;
+	}
+
+	#menuBox {
+		display: inline-block;
+		width: 45px;
+		padding:10px;
+	}
+
+    #menu-icon {
+    	display: inline-block;
+    	color:#3498db;
+    	font-size: 30px;
+    	cursor: pointer;
+    	/*padding-left: 13px;
+    	padding-right: 40px;
+    	margin-right: 40px;
+*/    }
+
+    #menu-icon:hover{
+    	color:#fff;
+    }
+
+
+    #menuBox:hover {
+    	background-color: #3498db;
+    }
+
+
+    #search-icon {
+    	display: inline-block;
+    	color:#3498db;
+    	font-size: 30px;
+    	padding-left: 40px;
+    }
+
+    #sub-icons {
+    	display:block;
+    	float: left;
+    }
+
+	#subheader p {
+		display: inline-block;
+		color:#3498db;
+		font-size: 30px;
+		padding-right: 125px;
+	}
+
+
+
+	/* ====================== MENU ======================= */
+
+#menu {
+  background: #3498db;
+  position: absolute;
+  padding:0;
+  height: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  transform: translate(-150%, 0px);
+  transition: all 0.75s ease-in-out;
+  text-align: center;
+  margin:0;
+}
+
+#menu ul {
+  margin:0;
+  padding: 0;
+  color: white;
+  list-style: none;
+
+}
+
+#menu ul li {
+
+  /*margin: 16px 0;*/
+  /*transition: all 0.25s ease-in-out;
+*/  /*border-bottom: 1px solid #fff;*/
+  border: 1px solid #fff;
+
+}
+
+#menu ul li a {
+	text-decoration: none;
+	color: #fff;
+	padding: 10px;
+
+}
+
+#menu ul li:hover {
+	background-color: #fff;
+	color: #3498db;
+}
+
+/*#menu ul li a:hover {
+	background-color: #fff;
+	color: #3498db;
+
+}*/
+
+/*#menu ul:hover {
+  background-color: #fff;
+}*/
+
+#menu ul li:hover {
+  /*color: #3498db;
+  background-color: #fff;*/
+  cursor: pointer;
+}
+
+
+#dashicon, #rdicon, #calicon, #logouticon {
+	display: block;
+	font-size: 80px;
+	
+	
+}
+
+
+#dashicon:hover, #rdicon:hover, #calicon:hover, #logouticon:hover {
+	background-color: #fff;
+	color:#3498db;
+}
+
+
+#menu.active {
+  -webkit-transform: translate(0%, 0px);
+  transform: translate(0%, 0px);
+  transition: all 0.75s ease-in-out;
+}
+
+ /*=============== SORT AND FILTER SUBHEADER ============*/
+
+
+#sort_filter_header {
+	padding-top: 13px;
+	padding-bottom: 13px;
+	background-color: #ecf0f1;
+}
+
+#sort p, #filter p {
+	display: inline-block;
+	font-size: 12px;
+	color: #6c7879;
+	padding-right: 10px;
+}
+
+
+#sort {
+	float: left;
+	padding-left: 80px;
+}
+
+#filter {
+	float: right;
+	padding-right: 80px;
+}
+
+#sort, #filter {
+	display: inline-block;
+}
+
+#sort_btns button, #filter_btns button {
+	display: inline-block;
+	border:none;
+	width: 80px;
+	height: 25px;
+	background-color: #fff;
+	font-size: 8px;
+	color: #6c7879;
+	transition: all 0.2s ease 0s;
+	margin-right: 10px;
+}
+
+#sort_btns, #filter_btns {
+	display: inline-block;
+}
+
+
+/* blue buttons effects */
+
+button.def_bl_btn:hover {
+	color: #3498db !important;
+}
+
+button.def_bl_btn:active {
+	background-color: #3498db !important;
+	color: #fff !important;
+	border: none !important; 
+}
+
+/* emergency button effects */
+
+button.em_rd_btn:hover {
+	color: #e74c3c !important;
+}
+
+button.em_rd_btn:active {
+	background-color: #e74c3c !important;
+	color: #fff !important;
+	border: none !important; 
+}
+
+/* done button effect */
+
+button.dn_gr_btn:hover {
+	color: #27ae60 !important;
+}
+
+button.dn_gr_btn:active {
+	background-color: #27ae60 !important;
+	color: #fff !important;
+	border: none !important; 
+}
+
+
+ /*  active class for jquery changing */
+
+/*
+.active {
+	background-color: #3498db !important;
+	color: #fff !important;
+	border: none !important; 
+}*/
+
+/* ================= COMMANDS ======================= */
+
+#commands{
+	display: inline-block;
+	/*float:left;*/
+	margin-top: 40px;
+	padding-left: 70px;
+	padding-right: 10px;
+
+	border-right: 1px solid #7cbde8;
+}
+
+#commands .mix{
+	display:none;
+}
+
+
+/* ============= Normal Command =================== */
+
+#comm_normal {
+	width: 400px;
+	height: 60px;
+	background-color: #fff;
+	-webkit-box-shadow: 0 1px rgba(0,0,0,.4);
+	-moz-box-shadow: 0 1px rgba(0,0,0,.4);
+	box-shadow: 0 1px rgba(0,0,0,.4);
+	margin-bottom: 10px;
+	border-left: 5px solid #3498db;
+	/*float:left;*/
+}
+
+
+#comm_normal #title {
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 15px;
+	padding-top: 3px;
+	padding-bottom: 5px;
+}
+
+span.norm_color {
+	color:#3498db;
+}
+
+#ID {
+	font-size: 20px;
+	display: inline-block;
+	padding-left: 15px;
+}
+
+#date {
+	display: inline-block;
+	font-size: 15px;
+	padding-left: 150px;
+}
+
+
+#ID, #date {
+	color: #6c7879;
+	padding-bottom: 2px;
+}
+
+#norm_icon {
+	font-size: 24px;
+	color: #3498db;
+	padding-right: 12px;
+	margin-top: -12px;
+}
+
+span#norm_icon {
+	display:block;
+	float: right;
+}
+
+
+
+/* hover effects */
+
+#comm_normal:hover {
+	-webkit-box-shadow: 0 1px rgba(99,176,227,.4);
+	-moz-box-shadow: 0 1px rgba(99,176,227,.4);
+	box-shadow: 0 1px rgba(99,176,227,.4);
+}
+
+
+/* ===================== Done Command ================= */
+
+#comm_done {
+	width: 400px;
+	height: 60px;
+	background-color: #fff;
+	-webkit-box-shadow: 0 1px rgba(0,0,0,.4);
+	-moz-box-shadow: 0 1px rgba(0,0,0,.4);
+	box-shadow: 0 1px rgba(0,0,0,.4);
+	margin-bottom: 10px;
+	border-left: 5px solid #27ae60;
+	/*float:left;*/
+}
+
+
+#comm_done #title {
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 15px;
+	padding-top: 3px;
+	padding-bottom: 5px;
+}
+
+span.done_color {
+	color:#27ae60;
+}
+
+#ID {
+	font-size: 20px;
+	display: inline-block;
+	padding-left: 15px;
+}
+
+#comm_done #date {
+	display: inline-block;
+	font-size: 13px;
+	padding-left: 150px;
+}
+
+
+#ID, #date {
+	color: #6c7879;
+	padding-bottom: 2px;
+}
+
+#done_icon {
+	font-size: 24px;
+	color: #27ae60;
+	padding-right: 12px;
+	margin-top: -16px;
+}
+
+span#done_icon {
+	display:block;
+	float: right;
+}
+
+/* done hover */
+
+#comm_done:hover {
+	-webkit-box-shadow: 0 1px rgba(39,174,96,.4);
+	-moz-box-shadow: 0 1px rgba(39,174,96,.4);
+	box-shadow: 0 1px rgba(39,174,96,.4);
+}
+
+
+/* ================= Emergency Command ================= */
+
+#comm_emerg {
+	width: 400px;
+	height: 60px;
+	background-color: #fff;
+	-webkit-box-shadow: 0 1px rgba(0,0,0,.4);
+	-moz-box-shadow: 0 1px rgba(0,0,0,.4);
+	box-shadow: 0 1px rgba(0,0,0,.4);
+	margin-bottom: 10px;
+	border-left: 5px solid #e74c3c;
+	/*float:left;*/
+}
+
+
+#comm_emerg #title {
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 15px;
+	padding-top: 3px;
+	padding-bottom: 5px;
+}
+
+span.emerg_color {
+	color:#e74c3c;
+}
+
+#ID {
+	font-size: 20px;
+	display: inline-block;
+	padding-left: 15px;
+}
+
+#date {
+	display: inline-block;
+	font-size: 15px;
+	padding-left: 150px;
+}
+
+
+#ID, #date {
+	color: #6c7879;
+	padding-bottom: 2px;
+}
+
+#emerg_icon {
+	font-size: 24px;
+	color: #e74c3c;
+	padding-right: 12px;
+	margin-top: -12px;
+}
+
+span#emerg_icon {
+	display:block;
+	float: right;
+}
+
+/* emergency hover */
+
+#comm_emerg:hover {
+	-webkit-box-shadow: 0 1px rgba(231,76,60,.4);
+	-moz-box-shadow: 0 1px rgba(231,76,60,.4);
+	box-shadow: 0 1px rgba(231,76,60,.4);
+}
+
+
+/* ================ COMMAND INFO ==================== */
+
+#comm_info {
+	float:right;
+	margin-top: 40px;
+	margin-right: 80px;
+	padding-right: 20px;
+	margin-top: 35px;
+}
+
+#comm_title {
+	float:right;
+	font-size: 20px;
+	color: #3498db;
+	border-bottom: 1px solid #3498db;
+}
+
+#information {
+	padding-top: 20px;
+	margin-top: 20px;
+}
+
+
+#information button {
+	width: 280px;
+	height: 50px;
+	background-color: #3498db;
+	font-size: 17px;
+	font-weight: bold;
+	color: #fff;
+	border:none;
+	margin-top: 20px;
+	transition: all 0.3s ease 0s;
+}
+
+/*#sch_btn a {
+	text-decoration: none;
+	color: #fff;
+}
+
+#sch_btn a:hover {
+	text-decoration: none;
+	color: #3498db;
+}
+
+#sch_btn a:active {
+	text-decoration: none;
+	color: #6c7879;
+}*/
+
+#sch_btn:hover {
+	background-color: #fff;
+	color: #3498db;
+}
+
+#sch_btn:active {
+	background-color: #fff;
+	color: #6c7879;
+}
+
+/* ======== Color Management ======= */
+
+.norm_color {
+	color:#3498db;
+}
+
+.done_color{
+	color:#27ae60;
+}
+
+.emerg_color {
+	color:#e74c3c;
+}
+
+/* Color grey */
+
+.inf {
+	color:#6c7879;
+}
+
+/* ================== BODY  =====================*/
+
+
+
+#content {
+	width: 960px;
+	margin: 0 auto;
+	background-color: #f6f8f8;
+}
+
+
+
+
+
+
+
+   /* ================ PAGINATION ======================= */
+
+   #pagination {
+		display:block;
+		margin-top: 85px;
+		padding-bottom: 85px;
+		margin-bottom: 40px;
+		padding-left: 300px
+   }
+
+	#pages {
+		display: inline-block;
+		/*width: 400px;*/
+		/*height: 40px;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		background-color: #fff;
+		border: solid 1px #d6d6d6*/
+	}
+   
+  #pages ul li {
+  	display: inline-block;
+  	list-style: none;
+  	font-size: 15px;
+	color: #6c7879;
+	line-height: 40px;
+	background-color: #fff;
+	border: solid 1px #d6d6d6;
+	border-right: 1px solid #d6d6d6;
+	/*margin-left: 25px;*/
+  }
+
+  #pages ul li a, #pages ul li span.current {
+  	text-decoration: none;
+  	font-size: 15px;
+	color: #6c7879;
+	line-height: 40px;
+	float: left;
+	padding-left:20px;
+	padding-right:20px;
+  }
+
+			/* ==== Current ==== */
+
+	ul li span.current {
+		background-color: #3498db !important;
+		color: #fff !important;
+		border: none !important;
+	}
+ 
+ ul li a:hover {
+ 	color:#3498db !important;
+ }
+
+
+span.next {
+	display: inline-block;
+	font-size: 10px;
+	height: 40px;
+	width: 70px;
+	padding-top: 2px;
+	text-align: center;
+	/*float: right;*/
+	/*background-color: green;*/
+
+}
+
+span.prev {
+	display: inline-block;
+	width: 70px;
+	height: 40px;
+	font-size: 10px;
+	/*background-color: green;*/
+	padding-top: 2px;
+	text-align: center;
+}
+  
+
+
+  /* #pages ul li a span.textbtn {
+  		display: inline-block;
+  		font-size: 10px;
+		padding:0;
+		margin:0;
+		background-color: red;
+		
+  }*/
+
+
+
+
+     /*============ FOOTER ==============*/
+
+   footer {
+   	position:absolute;
+    bottom:0;
+   	width: 100%;
+   	height: 43px;
+   	margin: 0 auto;
+   	text-align: center;
+   	background-color: #3498db;
+   }
+
+   footer p {
+   	font-size: 12px;
+   	color:#fff;
+   	line-height: 43px;
+   }
+
+
+
+
+   /* =================================== LOGIN PAGE ====================================*/
+
+   #loginBody {
+   	background-color: #f6f8f8;
+   	font-family: "Montserrat";
+   }
+
+   #loginBox {
+
+   	width: 506px;
+	height: 434px;
+	background-color: #ecf0f1;
+	-webkit-box-shadow: 0 1px 1px rgba(149,165,166,.75);
+	-moz-box-shadow: 0 1px 1px rgba(149,165,166,.75);
+	box-shadow: 0 1px 1px rgba(149,165,166,.75);
+	margin: 0 auto;
+	margin-top: 150px;
+
+   }
+
+   #loginHead {
+   	width: 506px;
+	height: 90px;
+	background-color: #3498db;
+   }
+
+   #logoBox {
+   	margin: 0 auto;
+   	text-align: center;
+
+   }
+
+   div#loginHead span#heart {
+	display: inline-block;
+	font-size: 50px;
+	color: #fff;
+	/*padding-left: 10px;
+	padding-right: 5px;
+	margin-top: 5px;*/
+}
+
+#logHead {
+	display: inline-block;
+	font-size: 45px;
+	color: #fff;
+	line-height: 90px;
+	/*margin-top: 6px;*/
+
+}
+
+
+
+/* ================= INPUTS ============*/
+
+
+
+#inputs {
+	padding-top: 70px;
+}
+
+#inputs input {
+	display: inline-block;
+	border: none;
+	width: 334px;
+	height: 62px;
+	background-color: #fff;
+	/*transition: all 0s ease 0.2s;*/
+	/*padding-left: 20px;*/
+}
+
+#IconBox {
+	float: left;
+	width: 62px;
+	height: 62px;
+	background-color: #3498db;
+	margin-left: 55px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#userIcon {
+	font-size: 35px;
+	color: #fff;
+	line-height: 62px;
+}
+
+#lockIcon {
+	font-size: 35px;
+	color: #fff;
+	line-height: 62px;
+}
+
+#inputs input:hover{
+	border: solid 1px rgba(149,165,166,.5);
+}
+
+#inputs input:focus{
+	border: solid 1px rgba(52,152,219,.5);
+}
+
+
+
+
+/* ================== PLACEHOLDER ==============*/
+
+
+
+#inputs input[placeholder] {
+	font-size: 22px;
+	color: #bdc3c7 !important;
+	font-family: "Montserrat";
+	padding-left: 20px;
+}
+
+::-webkit-input-placeholder {
+    color: #bdc3c7
+}
+:-moz-placeholder {
+    color: #bdc3c7
+}
+::-moz-placeholder {
+    color: #bdc3c7
+}
+:-ms-input-placeholder {
+    color: #bdc3c7
+}
+
+input:focus::-webkit-input-placeholder {
+	color: transparent;
+}
+
+input:focus::-moz-placeholder {
+	color: transparent;
+}
+
+input:focus::-ms-input-placeholder {
+	color: transparent;
+}
+
+
+/* =============== LOGIN BUTTON =================*/
+
+#lg_btn {
+	width: 307px;
+	height: 62px;
+	background-color: #3498db;
+	font-size: 20px;
+	font-weight: bold;
+	color: #fff;
+	border:none;
+	margin-top: 20px;
+	margin-left: 100px;
+	transition: all 0.3s ease 0s;
+}
+
+#lg_btn:hover {
+	background-color: #fff;
+	color: #3498db;
+}
+
+#lg_btn:active {
+	background-color: #fff;
+	color: #6c7879;
+}
+
+
+
+/* =====================  SCHEDULE PAGE ===================== */
+
+#subheaderSch {
+		padding-top: 15px;
+		padding-bottom: 13px;
+		text-align: center;
+		background-color: #ecf0f1 !important;
+	}
+
+
+#subheaderSch p {
+		display: inline-block;
+		color:#3498db;
+		font-size: 30px;
+		padding-right: 125px;
+}
+
+
+/* ==== command information ===== */
+
+#comm_infoSch {
+	float:left;
+	margin-top: 40px;
+	margin-left: 25px;
+	padding-left: 35px;
+	margin-top: 35px;
+	padding-right: 30px;
+}
+
+#comm_titleSch {
+	float:left;
+	font-size: 25px;
+	color: #3498db;
+	border-bottom: 1px solid #3498db;
+}
+
+#informationSch {
+	padding-top: 20px;
+	margin-top: 20px;
+}
+
+
+/* ==== patient information === */
+
+#comm_infoPat {
+	float:right;
+	margin-top: 40px;
+	margin-left: 25px;
+	padding-left: 80px;
+	margin-top: 35px;
+	padding-right: 90px;
+	border-left: 1px solid #7cbde8;
+}
+
+#comm_titlePat {
+	float:right;
+	font-size: 25px;
+	color: #3498db;
+	border-bottom: 1px solid #3498db;
+}
+
+#informationPat {
+	padding-top: 20px;
+	margin-top: 20px;
+}
+
+
+/* ======= available radiologists ======= */
+
+#av_radiologists {
+	float:left;
+	margin-top: 20px;
+	margin-left: 25px;
+	padding-left: 35px;
+	padding-right: 30px;
+}
+
+#radio_title {
+	float:left;
+	font-size: 25px;
+	color: #3498db;
+	border-bottom: 1px solid #3498db;
+	margin-bottom: 20px;
+}
+
+
+.radiologist {
+	float:left;
+	width: 350px;
+	/*height: 56px;*/
+	background-color: #fff;
+	margin-bottom: 1px;
+
+}
+
+
+/* ================ RADIO BUTTTON ============= */
+
+input[type="radio"]{
+	display:none;
+}
+
+input[type="radio"] + label:before {
+	float: left;
+	margin-top: 15px;
+	margin-left: 10px;
+	/*background-color: #3498db;*/
+	content:"";
+	display: inline-block;
+	font-size: 20px;
+	height: 22px;
+	width: 22px;
+	border-radius:50%;
+	line-height: 11px;
+	border: 2px solid #3498db;
+	cursor: pointer;
+}
+
+
+
+input[type=radio]:checked + label:before {
+	float: left;
+	content:"\2022";
+ 	color:#3498db;
+ 	font-size:52px;
+ 	vertical-align:middle;
+ 	text-align:center;
+ 	line-height:19px;
+}
+
+/* =============== Inside Radio Divs ============ */
+
+#nameRd {
+	float: left;
+	padding-left: 25px;
+	padding-top: 10px;
+	font-size: 25px;
+}
+
+.radiologist span {
+	color:#3498db;
+}
+
+.radiologist p {
+	color:#6c7879;
+}
+
+
+
+#IDRd {
+	display: inline-block;
+	font-size: 18px;
+	padding-left: 63px;
+}
+
+#jobs {
+	display: inline-block;
+	font-size: 15px;
+	padding-left: 125px;
+}
+
+#IDRd, #jobs {
+	/*background-color: red;*/
+	padding-top: -5px;
+	padding-bottom: 5px;
+	
+
+}
+
+#rd_icon {
+	float:right;
+	font-size: 30px;
+}
+
+span#rd_icon {
+	display: block;
+	margin-top: -27px;
+	margin-right: 10px;
+}
+
+#radiolist {
+	margin-bottom: 60px;
+}
+
+
+/* ================ schedule time date section ============== */
+
+#schedule {
+	float:right;
+	text-align: center;
+	margin-top: 20px;
+	margin-right: 25px;
+	padding-right: 60px;
+	
+}
+
+#sch_title {
+	float:right;
+	font-size: 25px;
+	color: #3498db;
+	border-bottom: 1px solid #3498db;
+	margin-bottom: 20px;
+}
+
+
+
+#inputSch input {
+	
+	border: none;
+	width: 271px;
+	height: 50px;
+	background-color: #fff;
+	/*transition: all 0s ease 0.2s;*/
+	/*padding-left: 20px;*/
+}
+
+#iconBoxS {
+	float: left;
+	width: 50px;
+	height: 50px;
+	background-color: #3498db;
+	margin-left: 55px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#calIcon {
+	font-size: 25px;
+	color: #fff;
+	line-height: 50px;
+}
+
+#clockIcon {
+	font-size: 25px;
+	color: #fff;
+	line-height: 50px;
+}
+
+/* ===== hover/focus input effects ====  */
+
+#inputSch input:hover{
+	border: solid 1px rgba(149,165,166,.5);
+}
+
+#inputSch input:focus{
+	border: solid 1px rgba(52,152,219,.5);
+}
+
+
+
+
+/*  ===== placeholders ===== */
+
+#inputSch input[placeholder] {
+	font-size: 22px;
+	color: #bdc3c7 !important;
+	font-family: "Montserrat";
+	padding-left: 20px;
+}
+
+::-webkit-input-placeholder {
+    color: #bdc3c7
+}
+:-moz-placeholder {
+    color: #bdc3c7
+}
+::-moz-placeholder {
+    color: #bdc3c7
+}
+:-ms-input-placeholder {
+    color: #bdc3c7
+}
+
+input:focus::-webkit-input-placeholder {
+	color: transparent;
+}
+
+input:focus::-moz-placeholder {
+	color: transparent;
+}
+
+input:focus::-ms-input-placeholder {
+	color: transparent;
+}
+
+
+/*  ======= Schedule Button ====== */
+
+#sch_btn {
+	width: 321px;
+	height: 50px;
+	background-color: #3498db;
+	font-size: 20px;
+	font-weight: bold;
+	color: #fff;
+	margin-left: 55px; 
+	border:none;
+	transition: all 0.3s ease 0s;
+}
+
+#sch_btn:hover {
+	background-color: #fff;
+	color: #3498db;
+}
+
+#sch_btn:active {
+	background-color: #fff;
+	color: #6c7879;
+}
+
+
+
+/*  ================= RADIOLOGISTS PAGE =================== */
+
+#subheaderRd {
+		padding-top: 15px;
+		padding-bottom: 13px;
+		text-align: center;
+		background-color: #ecf0f1 !important;
+	}
+
+
+#subheaderRd p {
+		display: inline-block;
+		color:#3498db;
+		font-size: 30px;
+		padding-right: 125px;
+}
+
+#med_title {
+	float:left;
+	font-size: 30px;
+	color: #3498db;
+	border-bottom: 1px solid #3498db;
+	padding-top: 80px;
+	margin-left: 145px;
+}
+
+
+
+#med_list{
+	display: inline-block;
+	/*float:left;*/
+	margin-top: 40px;
+	padding-left: 70px;
+	padding-right: 10px;
+
+	border-right: 1px solid #7cbde8;
+}
+
+
+#med_box {
+	width: 400px;
+	height: 60px;
+	background-color: #fff;
+	-webkit-box-shadow: 0 1px rgba(0,0,0,.4);
+	-moz-box-shadow: 0 1px rgba(0,0,0,.4);
+	box-shadow: 0 1px rgba(0,0,0,.4);
+	margin-bottom: 10px;
+	border-left: 5px solid #3498db;
+	/*float:left;*/
+}
+
+
+#med_box #med_name {
+	font-size: 20px;
+	font-weight: bold;
+	padding-left: 15px;
+	padding-top: 3px;
+	padding-bottom: 5px;
+}
+
+span.norm_color {
+	color:#3498db;
+}
+
+#med_ID {
+	font-size: 20px;
+	display: inline-block;
+	padding-left: 15px;
+}
+
+#med_job {
+	display: inline-block;
+	font-size: 15px;
+	padding-left: 150px;
+}
+
+
+#med_ID, #med_job {
+	color: #6c7879;
+	padding-bottom: 2px;
+}
+
+#med_icon {
+	font-size: 30px;
+	color: #3498db;
+	padding-right: 12px;
+	margin-top: -15px;
+}
+
+span#med_icon {
+	display:block;
+	float: right;
+}
+
+
+
+/* hover effects */
+
+#med_box:hover {
+	-webkit-box-shadow: 0 1px rgba(99,176,227,.4);
+	-moz-box-shadow: 0 1px rgba(99,176,227,.4);
+	box-shadow: 0 1px rgba(99,176,227,.4);
+}
+
+
+/* =============== CALENDAR ================= */
+
+#cal_title {
+	float: right;
+	font-size: 30px;
+	color: #3498db;
+	border-bottom: 1px solid #3498db;
+	margin-right: 145px;
+	padding-top: 80px;
+}
+
+
+#wrap_cal {
+	float: right;
+	margin-top:40px;
+	width:400px;
+	margin-right:40px;
+}
+
+#wrap_cal header {
+	background-color:#3498db;
+}
+
+#wrap_cal header h2, #wrap_cal header a {
+	color:#fff;
+}
+
+#wrap_cal table {
+	background-color:white;
+}
+
+
+/*  ====== calendar page ===== */
+
+#wrap_cal2 {
+	margin:0 auto;
+	margin-top:40px;
+	width:550px;
+	/*margin-right:40px;*/
+}
+
+#wrap_cal2 header {
+	background-color:#3498db;
+}
+
+#wrap_cal2 header h2, #wrap_cal header a {
+	color:#fff;
+}
+
+#wrap_cal2 table {
+	background-color:white;
+}
