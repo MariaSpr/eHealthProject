@@ -1,3 +1,9 @@
+﻿<?php
+include('session.php');
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +25,7 @@
 
 			<div id="account">
 				<span id="user" class="fa fa-user"></span>
-				<p id="acc">MARIA SIAPERA</p>
+				<p id="acc"><?php echo $actual_name; ?></p>
 			</div>
 
 			<div style="clear: both";></div>
@@ -31,10 +37,10 @@
 			
 			<div id="menu">
 				<ul>
-					<li><a href="dashboard.html"><span id="dashicon" class="fa fa-tachometer"></span>DASHBOARD</a></li>
-					<li><a href="radiologists.html"><span id="rdicon" class="fa fa-user-md"></span>RADIOLOGISTS</a></li>
+					<li><a href="dashboard.php"><span id="dashicon" class="fa fa-tachometer"></span>DASHBOARD</a></li>
+					<li><a href="radiologists.php"><span id="rdicon" class="fa fa-user-md"></span>RADIOLOGISTS</a></li>
 					<li><a href="#"><span id="calicon" class="fa fa-calendar"></span>CALENDAR</a></li>
-					<li><a href="index.html"><span id="logouticon" class="fa fa-power-off"></span>LOG OUT</a></li>
+					<li><a href="logout.php"><span id="logouticon" class="fa fa-power-off"></span>LOG OUT</a></li>
 				</ul>
 			</div>
 
@@ -78,19 +84,39 @@
 										</tbody>
 									</table>
 									<div class="list">
-										<div class="day-event" date-month="5" date-day="4" data-number="1">
+									
+									<?php 
+									$con = mysqli_connect('localhost','root','','ehealthproject');
+										if (!$con) {
+											die('Could not connect: ' . mysqli_error($con));
+										}
+										$sql="SELECT  Type, Execute_By, Execute_Time, Type, Reason FROM command WHERE Current_State=\"done\" ";
+										$result = mysqli_query($con,$sql);
+										
+										while($row = mysqli_fetch_array($result)) {
+										
+										$debris = explode("-", $row['Execute_By']);
+										echo ("<div class=\"day-event\" date-month=\"".ltrim($debris[1], '0')."\" date-day=\"".ltrim($debris[2], '0')."\" data-number=\"1\">");
+										echo ("	<h2 class=\"title\">".$row['Execute_By']."</h2>");
+										echo ("	<p class=\"date\">".$row['Type']."</p>");
+										echo ("	<p>Assigned Time: ".$row['Execute_Time']." <br> Reason: ".$row['Reason']." </p>");											
+										echo ("</div>");
+										}
+										mysqli_close($con);
+									?>
+										<!-- <div class="day-event" date-month="5" date-day="4" data-number="1">
 											<h2 class="title">Niar</h2>
 											<p class="date">ΜΙΑΡ</p>
 											<p>Appointments: Niar niar niar</p>
 											
 										</div>
-										<div class="day-event" date-month="3" date-day="13" data-number="1">
+										<div class="day-event" date-month="3" date-day="13" data-number="2">
 											<h2 class="title">ΝΙΑΡ</h2>
 											<p class="date">2014-12-13</p>
 											<p>ΝΙΑΡ</p>
 											
 										</div>
-										<div class="day-event" date-month="3" date-day="13" data-number="2">
+										<div class="day-event" date-month="3" date-day="13" data-number="1">
 											<h2 class="title">Lorem ipsum 2</h2>
 											<p class="date">2014-12-13</p>
 											<p>Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok.</p>
@@ -119,7 +145,7 @@
 											<p class="date">2014-12-31</p>
 											<p>Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok.</p>
 											
-										</div>
+										</div>-->
 									</div>
 								</div>
 
@@ -128,12 +154,12 @@
 
 	</div> <!-- end content -->
 
-	<!-- ===================== FOOTER ======================== -->
+	<!-- ===================== FOOTER ======================== 
 
 	<footer>
 		<p>Copyright &copy; all rights reserved 2015</p>
 	</footer>
-
+-->
 		<!-- JQUERY SCRIPT -->
 	<script>
 		$(function(){

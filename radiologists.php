@@ -1,3 +1,6 @@
+﻿<?php
+include('session.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +9,26 @@
 	<link rel="stylesheet" href="css/mainStyle.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
-
-	
-
-
-
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/simplecalendar.js"></script>
+	<script> 
+		function refreshCal(radiologistID){
+			if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("calList").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET","getCalInfo.php?q="+radiologistID,true);
+        xmlhttp.send();
+		}
+	</script>
 </head>
 <body>
 
@@ -24,7 +40,7 @@
 
 			<div id="account">
 				<span id="user" class="fa fa-user"></span>
-				<p id="acc">MARIA SIAPERA</p>
+				<p id="acc"><?php echo $actual_name; ?></p>
 			</div>
 
 			<div style="clear: both";></div>
@@ -36,10 +52,10 @@
 			
 			<div id="menu">
 				<ul>
-					<li><a href="dashboard.html"><span id="dashicon" class="fa fa-tachometer"></span>DASHBOARD</a></li>
+					<li><a href="dashboard.php"><span id="dashicon" class="fa fa-tachometer"></span>DASHBOARD</a></li>
 					<li><a href="#" class="activeLi"><span id="rdicon" class="fa fa-user-md"></span>RADIOLOGISTS</a></li>
-					<li><a href="calendar.html"><span id="calicon" class="fa fa-calendar"></span>CALENDAR</a></li>
-					<li><a href="index.html"><span id="logouticon" class="fa fa-power-off"></span>LOG OUT</a></li>
+					<li><a href="calendar.php"><span id="calicon" class="fa fa-calendar"></span>CALENDAR</a></li>
+					<li><a href="logout.php"><span id="logouticon" class="fa fa-power-off"></span>LOG OUT</a></li>
 				</ul>
 			</div>
 
@@ -63,7 +79,31 @@
 		<div style="clear: both";></div>
 
 		<div id="med_list">
-			<div id="med_box">
+		
+		<?php
+
+				$con = mysqli_connect('localhost','root','','ehealthproject');
+				if (!$con) {
+					die('Could not connect: ' . mysqli_error($con));
+				}
+				$sql="select * from radiologist";
+				$result = mysqli_query($con,$sql); 
+
+				while($row = mysqli_fetch_array($result)) {
+					echo("<div id=\"med_box\" onclick=\"refreshCal(".$row['radiologistID'].")\">");
+					echo("<p id=\"med_name\"><span class=\"norm_color\">".$row['rName']." ".$row['rSurname']."</span></p>");
+					echo("<p id=\"med_ID\"><span class=\"norm_color\">ID:</span> 00".$row['radiologistID']."</p>");
+					$res = mysqli_query($con, "select COUNT(*) from command where radiologistID=".$row['radiologistID']."");
+					$rw = mysqli_fetch_array($res);
+					echo("<p id=\"med_job\">jobs: <span class=\"norm_color\">".$rw[0]."</span></p>");
+					echo("<span id=\"med_icon\" class=\"fa fa-user-md\"></span>");
+
+					echo("</div>");
+									
+				}
+				mysqli_close($con);
+			?>
+<!--			 <div id="med_box">
 				<p id="med_name"><span class="norm_color">Chris Boss</span></p>
 				<p id="med_ID"><span class="norm_color">ID:</span>001</p>
 				<p id="med_job">jobs: <span class="norm_color">3 </span></p>
@@ -89,7 +129,7 @@
 				<p id="med_ID"><span class="norm_color">ID:</span>001</p>
 				<p id="med_job">jobs: <span class="norm_color">3 </span></p>
 				<span id="med_icon" class="fa fa-user-md"></span>
-			</div> 
+			</div> -->
 
 		</div> <!-- end medlist -->
 		
@@ -99,6 +139,7 @@
 
 		<div id="wrap_cal">
 			<div class="calendar hidden-print">
+						<div class="ajaxWorkaround">
 								<header>
 									<h2 class="month"></h2>
 									<a class="btn-prev fa fa-angle-left" href="#"></a>
@@ -116,8 +157,9 @@
 										<tr class="5"></tr>
 									</tbody>
 								</table>
-								<div class="list">
-									<div class="day-event" date-month="5" date-day="4" data-number="1">
+						</div>
+								<div id="calList" class="list">
+									<!-- <div class="day-event" date-month="5" date-day="4" data-number="1">
 										<h2 class="title">Niar</h2>
 										<p class="date">ΜΙΑΡ</p>
 										<p>Appointments: Niar niar niar</p>
@@ -158,7 +200,7 @@
 										<p class="date">2014-12-31</p>
 										<p>Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok.</p>
 										
-									</div>
+									</div> -->
 								</div>
 							</div>
 

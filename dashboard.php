@@ -1,3 +1,7 @@
+<?php
+include('session.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +9,79 @@
 	<title>DashBoard</title>
 	<link rel="stylesheet" href="css/mainStyle.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<script src="js/jquery-1.11.3.min.js"></script>
-	<script src="js/jquery.mixitup.min.js"></script>
-	<script src="js/javascript.js"></script>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+	<script src="js/javascript.js"></script>
+	<script> 
+	function showResult(str){
+			if (str.length==0){
+				document.getElementById("commands").innerHTML = "";
+				return;
+			}
+			if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("commands").innerHTML = xmlhttp.responseText;
+            }
+			// var scripts = document.getElementById("commands").getElementsByTagName("script");
+				// for( var i=0; i<scripts.length; i++ ) {
+					// eval(scripts[i].innerText);
+				// }		
+			$('#commands').mixItUp('destroy');	
+			setTimeout(function(){  $('#commands').mixItUp() }, 250);
+        }
+		
+        xmlhttp.open("GET","search.php?q="+str,true);
+        xmlhttp.send();
+		}
+		function refreshCommands(startID){
+			if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("commands").innerHTML = xmlhttp.responseText;
+            }
+			// var scripts = document.getElementById("commands").getElementsByTagName("script");
+				// for( var i=0; i<scripts.length; i++ ) {
+					// eval(scripts[i].innerText);
+				// }			
+			setTimeout(function(){  $('#commands').mixItUp() }, 250);
+        }
+		
+        xmlhttp.open("GET","getCommands.php?q="+startID,true);
+        xmlhttp.send();
+		}
+		
+		function refreshDesc(commandID){
+			if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("information").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET","getDesc.php?q="+commandID,true);
+        xmlhttp.send();
+		
+		}
+	</script>
 </head>
 <body>
 	
@@ -20,7 +93,7 @@
 
 			<div id="account">
 				<span id="user" class="fa fa-user"></span>
-				<p id="acc">MARIA SIAPERA</p>
+				<p id="acc"><?php echo $actual_name; ?></p>
 			</div>
 
 			<div style="clear: both";></div>
@@ -33,9 +106,9 @@
 			<div id="menu">
 				<ul>
 					<li><a href="#"><span id="dashicon" class="fa fa-tachometer"></span>DASHBOARD</a></li>
-					<li><a href="radiologists.html"><span id="rdicon" class="fa fa-user-md"></span>RADIOLOGISTS</a></li>
-					<li><a href="calendar.html"><span id="calicon" class="fa fa-calendar"></span>CALENDAR</a></li>
-					<li><a href="index.html"><span id="logouticon" class="fa fa-power-off"></span>LOG OUT</a></li>
+					<li><a href="radiologists.php"><span id="rdicon" class="fa fa-user-md"></span>RADIOLOGISTS</a></li>
+					<li><a href="calendar.php"><span id="calicon" class="fa fa-calendar"></span>CALENDAR</a></li>
+					<li><a href="logout.php"><span id="logouticon" class="fa fa-power-off"></span>LOG OUT</a></li>
 				</ul>
 			</div>
 	
@@ -45,7 +118,14 @@
 		<div id="subheader">
 			<div id="sub-icons">
 				<div id="menuBox"><span id="menu-icon" class="fa fa-bars"></span></div>
-				<span id="search-icon" class="fa fa-search"></span>
+				<!-- <span id="search-icon" class="fa fa-search"></span> -->
+				
+				<div class="box">
+				  <div class="container-1">
+				      <span class="icon"><i class="fa fa-search"></i></span>
+				      <input type="search" id="search" placeholder="Search..." onkeyup="showResult(this.value)" />
+				  </div>
+				</div>
 			</div>  
 
 			<p>DASHBOARD</p>
@@ -83,8 +163,7 @@
 		</div> <!-- end sort filter  -->
 
 
-		<!-- ============== COMMANDS ================ -->
-
+		<!-- ============== ORDERS ================ -->
 		<div id="commands" class="list">
 
 			<div id="comm_normal" class="mix pending" data-myorder="1">
@@ -180,10 +259,11 @@
 		<!-- ============= COMMAND INFORMATION =========== -->
 
 		<div id="comm_info">
-			<p id="comm_title">COMMAND INFORMATION</p>
+			<p id="comm_title">ORDER INFORMATION</p>
 
 			<div id="information">
-				<p class="norm_color">RADIOLOGICAL EXAM: <span class="inf">X-Rays</span></p>
+				<p id="norm_color">SELECT AN ORDER</p>
+			<!--	<p class="norm_color">RADIOLOGICAL EXAM: <span class="inf">X-Rays</span></p>
 				<p class="norm_color">ID: <span class="inf">001</span></p>
 				<p class="norm_color">REASON: <span class="inf">Checkup</span></p>
 				<p class="norm_color">DATE OF COMMAND: <span class="inf">04/03/2015</span></p>
@@ -191,7 +271,7 @@
 				<p class="norm_color">PRIORITY: <span class="inf">Low priority</span></p>
 				<p class="norm_color">SCHEDULED DATE: <span class="inf">PENDING</span></p>
 				
-				<a href="schedule.html"><button id="sch_btn" type="button">SCHEDULE</button></a>
+				<a href="schedule.php"><button id="sch_btn" type="button">SCHEDULE</button></a> -->
 			</div>
 
 		</div> <!-- end commands information --> 
@@ -203,11 +283,32 @@
 	<div id="pagination">
 		<div id="pages">
 			<ul>
-				<li><a href="#"><span class="textbtn prev">PREVIOUS</span></a></li>
+			<li style="visibility: hidden"><a href="#"><span class="textbtn prev">PREVIOUS</span></a></li>
+				<?php
+					// Establishing Connection with Server by passing server_name, user_id, password and database as a parameter
+					$connection = mysqli_connect("localhost", "root", "", "ehealthproject");
+					$result = mysqli_query($connection , "select COUNT(*) from command");
+					$row = mysqli_fetch_array($result);
+					$get_total_rows = $row[0];
+					echo ("<li><a  class=\"current\" onclick=\"$('#commands').mixItUp('destroy'); refreshCommands(0); \" >1</a></li>");
+					$helper = 0;
+					if(($get_total_rows/7)>1){
+						$helper = $get_total_rows - 7;
+						$pageCount = 2;
+						echo ("<li><a  onclick=\"$('#commands').mixItUp('destroy'); refreshCommands(7);\" >2</a></li>");
+						while(($helper/7)>1){
+							$helper = $helper - 7;
+							$pageCount = $pageCount + 1;
+							$toContinue = 7*($pageCount - 1);
+							echo ("<li><a  onclick=\"$('#commands').mixItUp('destroy'); refreshCommands($toContinue);\" >$pageCount</a></li>");
+						}
+					}
+				?>
+			<!--	
 				<li><span class="current">1</span></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#"><span  class="textbtn next">NEXT</span></a></li>
+				<li><a href="">2</a></li>
+				<li><a href="#">3</a></li>-->
+				<li style="visibility: hidden"><a href="#"><span  class="textbtn next">NEXT</span></a></li> 
 			</ul>
 		</div>
 	</div>
@@ -228,11 +329,15 @@
 
 	<!-- JQUERY SCRIPT -->
 	<script>
-		$(function(){
+	
+	$(function(){
+			
+	refreshCommands(0);
+	
 
+	//$('#commands').mixItUp('');
 	// Instantiate MixItUp:
 
-	$('#commands').mixItUp();
 
 	//menu
 	$("#menu-icon").click(function() {
@@ -242,8 +347,10 @@
 	$("#menu-icon").click(function() {
 	  $("#trigger").toggleClass("active");
 		});
+	});
+	
 
-});
 	</script>
+	<script src="js/jquery.mixitup.min.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Login Page</title>
+	<title>Select System</title>
 	<link rel="stylesheet" href="css/mainStyle.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 </head>
@@ -10,36 +10,49 @@
 	<div id="loginBox">
 		<div id="loginHead">
 			<div id="logoBox"><span id="heart" class="fa fa-heartbeat"></span>	
-			<p id="logHead">HealthAPP</p>
-		</div>
-		<div id="inputs">
-
-					<!-- Username Input -->
-
-			<div id="IconBox">
-				<span id="userIcon" class="fa fa-user"></span>
+				<p id="logHead">HealthAPP</p>
 			</div>
-			<input type="text" placeholder="USERNAME">
+		
+			<div id="inputs">
 
-					<!-- CLEAR -->
-			<div style="clear: both";></div>
+							<!-- Secretary -->
+	
+					<div id="IconBox">
+						<span id="secIcon" class="fa fa-pencil"></span>
+					</div>
+					
+					<button type="submit" value="login" id="sec_btn" name="submit" onclick="window.location='http://localhost/ehealthproject/login.php';" >SECRETARY APP</button>
+					
+
+							<!-- CLEAR -->
+					<div style="clear: both";></div>
 
 
-					<!-- Password Input -->
 
-			<div id="IconBox">
-				<span id="lockIcon" class="fa fa-lock"></span>
-			</div>
-			<input type="password" placeholder="PASSWORD">
+							<!-- Doctor -->
 
-					<!-- CLEAR -->
-			<div style="clear: both";></div>
+					<div id="IconBox">
+						<span id="docIcon" class="fa fa-user-md"></span>
+					</div>
+					
+					<button type="submit" value="login" id="doc_btn" name="submit" onclick="window.location='http://localhost/ehealthdoc/login.php';">DOCTOR APP</button>
 
-			<button id="lg_btn" type="submit">LOGIN</button>
+							<!-- CLEAR -->
+					<div style="clear: both";></div>
 
-		</div>
-			
+					<div id="btns">
+						
+						
+					</div>
+
+						<!-- CLEAR -->
+					<div style="clear: both";></div>
+					
+
+					
+		
+				
+			</div>		
 		</div>
 	</div>
-</body>
 </html>
